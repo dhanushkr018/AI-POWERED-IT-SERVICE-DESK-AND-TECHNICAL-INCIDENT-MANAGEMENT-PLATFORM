@@ -17,8 +17,8 @@ export function AuthLayout({ title, subtitle, children }) {
             Technical incidents, routed to the right support team.
           </h1>
           <p className="mt-4 max-w-md text-base leading-7 text-slate-300">
-            This phase signs people in and keeps administrator access separate from public registration.
-            Troubleshooting and ticket screens come next.
+            Sign in, report a technical problem, and follow the ticket through the support queue.
+            Registration cannot grant support or administrator access.
           </p>
           <ul className="mt-8 space-y-3">
             {examples.map(([label, Icon]) => (
@@ -31,7 +31,7 @@ export function AuthLayout({ title, subtitle, children }) {
             ))}
           </ul>
         </div>
-        <p className="mt-10 text-sm text-slate-400">Phase 1 · Accounts and access control</p>
+        <p className="mt-10 text-sm text-slate-400">Phase 2 · Tickets and status history</p>
       </section>
       <section className="flex items-center justify-center bg-[#f4f7f8] px-6 py-10">
         <div className="w-full max-w-md">

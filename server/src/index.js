@@ -4,6 +4,7 @@ import { checkSupabase, createDirectory, createSupabaseAdmin } from "./lib/supab
 import { createAuthenticate } from "./middleware/authenticate.js";
 import { createProfileService } from "./services/profileService.js";
 import { createRoleService } from "./services/roleService.js";
+import { createTicketService } from "./services/ticketService.js";
 
 const directory = createDirectory(createSupabaseAdmin());
 
@@ -14,6 +15,7 @@ const app = createApp({
   }),
   profileService: createProfileService(directory.client),
   roleService: createRoleService(directory.client),
+  ticketService: createTicketService(directory.client),
   supabaseStatus: checkSupabase,
 });
 

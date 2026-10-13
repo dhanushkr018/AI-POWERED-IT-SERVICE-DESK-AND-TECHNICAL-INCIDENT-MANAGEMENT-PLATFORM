@@ -25,6 +25,7 @@ function appWith(authenticate, extras = {}) {
       async revokeRole() {},
       async setActive() {},
     },
+    ticketService: extras.ticketService,
   });
 }
 
@@ -32,7 +33,7 @@ test("health does not claim an assistant is running", async () => {
   const response = await request(appWith((req, _res, next) => next())).get("/api/health");
   assert.equal(response.status, 200);
   assert.equal(response.body.ok, true);
-  assert.equal(response.body.phase, 1);
+  assert.equal(response.body.phase, 2);
   assert.equal(response.body.assistant.activeMode, "not_enabled");
   assert.equal(response.body.supabase, "not_configured");
   assert.doesNotMatch(JSON.stringify(response.body), /AI-powered/i);

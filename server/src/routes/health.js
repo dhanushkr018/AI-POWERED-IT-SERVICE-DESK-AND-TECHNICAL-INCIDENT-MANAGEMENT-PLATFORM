@@ -10,13 +10,13 @@ export function createHealthRouter({ supabaseStatus }) {
       res.json({
         ok: true,
         service: "ai-it-service-desk-api",
-        phase: 1,
+        phase: 2,
         supabase,
         assistant: {
           activeMode: "not_enabled",
           label: "No support assistant is running yet",
           requestedProvider: config.aiProvider,
-          note: "Phase 1 does not call Ollama or a rules engine.",
+          note: "Ticket rules choose priority and the first support queue. No assistant is running.",
         },
       });
     } catch (error) {

@@ -2,7 +2,7 @@
 
 A college project for reporting technical incidents, guiding safe troubleshooting, creating support tickets, and connecting people with the right IT team.
 
-**Current phase: 1 — foundation.** Sign-in, profiles, three roles, the database, and access rules are in the repository. The support assistant, ticket screens, live chat, and charts are not built yet. The application does not call a language model.
+**Current phase: 2 — ticket management.** Sign-in, roles, manual ticket creation, ticket numbers, lists, details, and status history are in the repository. The support assistant, automatic choice of a support person, live chat, and charts are not built yet. The application does not call a language model.
 
 ## What works in this phase
 
@@ -12,13 +12,15 @@ A college project for reporting technical incidents, guiding safe troubleshootin
 - Public registration always creates a normal user. It cannot grant support or administrator access.
 - An administrator page to grant or remove those roles and to activate or deactivate accounts.
 - Express checks the Supabase access token and ignores any user id sent in the request body.
+- Manual ticket creation, database ticket numbers, ticket lists, ticket details, and status history.
+- A new ticket is placed in a category queue. A specific support person is not chosen yet.
 - PostgreSQL tables, ticket numbering, Row Level Security, and a private attachment bucket are written as SQL migrations.
 - Classroom sample data: support teams, SLA targets, knowledge articles, and a seed script for people, devices, and incidents.
 
 ## What is not built yet
 
-- The support assistant, including the rules engine and Ollama.
-- Ticket list, ticket details, assignment, escalation, and live chat screens.
+- The support assistant and Ollama.
+- Choosing a specific support person, escalation workflow, and live chat.
 - Dashboards and charts. Recharts is installed for a later phase and is not used yet.
 - A live check that the Row Level Security policies behave correctly in your Supabase project. The policies are written. They start protecting data only after you run the SQL files.
 

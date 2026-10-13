@@ -9,6 +9,9 @@ import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { RegisterPage } from "@/pages/RegisterPage";
 import { SetupPage } from "@/pages/SetupPage";
+import { TicketCreatePage } from "@/pages/TicketCreatePage";
+import { TicketDetailPage } from "@/pages/TicketDetailPage";
+import { TicketListPage } from "@/pages/TicketListPage";
 
 function ProtectedRoute({ children }) {
   const { configured, session, loading } = useAuth();
@@ -40,6 +43,9 @@ export default function App() {
         }
       >
         <Route index element={<HomePage />} />
+        <Route path="tickets" element={<TicketListPage />} />
+        <Route path="tickets/new" element={<TicketCreatePage />} />
+        <Route path="tickets/:ticketId" element={<TicketDetailPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route
           path="admin/users"

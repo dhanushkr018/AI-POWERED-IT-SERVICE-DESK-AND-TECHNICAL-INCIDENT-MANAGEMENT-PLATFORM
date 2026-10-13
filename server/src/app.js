@@ -7,6 +7,7 @@ import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js";
 import { createAdminUsersRouter } from "./routes/adminUsers.js";
 import { createHealthRouter } from "./routes/health.js";
 import { createMeRouter } from "./routes/me.js";
+import { createTicketsRouter } from "./routes/tickets.js";
 
 export function createApp(options = {}) {
   const app = express();
@@ -17,7 +18,7 @@ export function createApp(options = {}) {
   app.use(
     cors({
       origin: options.clientOrigin ?? config.clientOrigin,
-      allowedHeaders: ["Authorization", "Content-Type"],
+      allowedHeaders: ["Authorization", "Content-Type", "Idempotency-Key"],
     }),
   );
   app.use(express.json({ limit: "1mb" }));
@@ -51,6 +52,13 @@ export function createApp(options = {}) {
     createMeRouter({
       authenticate: options.authenticate,
       profileService: options.profileService,
+    }),
+  );
+  app.use(
+    "/api/tickets",
+    createTicketsRouter({
+      authenticate: options.authenticate,
+      ticketService: options.ticketService,
     }),
   );
   app.use(

@@ -1,4 +1,4 @@
-import { LayoutDashboard, LogOut, Shield, UserRound } from "lucide-react";
+import { LayoutDashboard, LogOut, Shield, Ticket, UserRound } from "lucide-react";
 import { NavLink, Outlet } from "react-router-dom";
 import { RoleBadge } from "@/components/RoleBadge";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/app", label: "Home", icon: LayoutDashboard, end: true },
+  { to: "/app/tickets", label: "Tickets", icon: Ticket, end: false },
   { to: "/app/profile", label: "Profile", icon: UserRound, end: false },
 ];
 
